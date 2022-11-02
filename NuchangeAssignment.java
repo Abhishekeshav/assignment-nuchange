@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.Scanner;
 import java.util.HashMap;
-
+import java.util.stream.Collectors;
 
 public class NuchangeAssignment {
 
@@ -103,7 +103,8 @@ public class NuchangeAssignment {
         }
         System.out.println("list json format: {\"url\":\"count\"}");
         String json = "{"+urlDetails.entrySet().stream()
-                .map(e -> "\""+ e.getKey() + "\":\"" + String.valueOf(e.getValue()[1]) + "\"");
+                .map(e -> "\""+ e.getKey() + "\":\"" + String.valueOf(e.getValue()[1]) + "\"")
+             .collect(Collectors.joining(", "))+"}";
         System.out.println(json);
     }
 
